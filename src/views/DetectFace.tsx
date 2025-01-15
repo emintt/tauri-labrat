@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import * as faceapi from 'face-api.js';
+import { Camera } from 'lucide-react';
 
 const DetectFace: React.FC = () => {
 const videoRef = useRef<HTMLVideoElement>(null); // Reference to the video element
@@ -68,16 +69,7 @@ let timer: ReturnType<typeof setTimeout> | null = null;
 return (
     <div style={{ textAlign: 'center', marginTop: '20px', position: 'relative' }}>
        <h1>Face Detection</h1>
-        <video
-            ref={videoRef}
-            autoPlay
-            muted
-            playsInline
-            style={{
-                width: '80%',
-                border: '1px solid black',
-            }}
-        />
+        <Camera ref={videoRef} width={800} aspect={ 16 / 9} />
         {detection && (
             <div
                 style={{
