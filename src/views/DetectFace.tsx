@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import * as faceapi from 'face-api.js';
-import { Camera } from 'lucide-react';
+import Camera from '@/components/Camera';
 
 const DetectFace: React.FC = () => {
 const videoRef = useRef<HTMLVideoElement>(null); // Reference to the video element

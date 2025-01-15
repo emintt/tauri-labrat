@@ -17,15 +17,29 @@ const Camera = forwardRef<HTMLVideoElement, CameraProps>((props, ref) => {
 
   useEffect(() => {
     const setupVideoInput = async () => {
-      // getUserMedia
-      videoRef.current?.srcObject = stream;
+      try {
+        if (videoRef.current) {
+          // getUserMedia
+          const stream =  await navigator.mediaDevices.getUserMedia({
+            audio: false, 
+            video: {width: width, height: height}
+          });
+          // srcObject
+          videoRef.current.srcObject = stream;
+          // play
+          videoRef.current.onloadedmetadata = () => {
+            videoRef.current?.play();
+          };
+        }
+        
+      } catch (error) {
+        console.error("Error setting video input", (error as Error).message);
+      }
     };
-    setupVideoInput;
+    setupVideoInput();
   }, []);
   
   return <video ref={videoRef} width={width} height={height} />
-
-
 
 });
 
