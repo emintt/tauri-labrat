@@ -21,7 +21,7 @@ const Home = () => {
         <NavLink to={'/face'}>
           <Button>Start Voting</Button>
         </NavLink>
-        <Button>Clear Database</Button>
+        <Button onClick={handleClearDatabase}>Clear Database</Button>
       </section>
     </>
   );

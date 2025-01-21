@@ -49,9 +49,19 @@ const useFaceDetection = () => {
 
     setDetection(result.detection);
 
+    // tähän tavita return vain silloin kun ei ole dbta??
     return labeledDescriptor;
-    
+
   };
+
+  // const matchFace = async (currentDescriptors, descriptorsFromDB) => {
+  //   if (currentDescriptors && descriptorsFromDB.length > 0) {
+  //     const faceMatcher = new faceapi.FaceMatcher(descriptorsFromDB);
+
+  //     return faceMatcher.matchDescriptor(currentDescriptors.descriptor)
+  //   }
+  // };
+
   return { detection, getDescriptors };
     
 };
